@@ -1,12 +1,78 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ru">
 <head>
     <meta charset="UTF-8">
+    <link rel="stylesheet" href="app.css">
     <title>Конструктор визиток</title>
 </head>
 <body>
     <div class="wrapper">
-        <div class="editor"></div>
+        <div class="editor">
+            <h1>Конструктор визиток</h1>
+            <div class="field">
+                <p>Наименование организации</p>
+                <input type="text" name="company-name" value="ООО &quotОриентир&quot">
+            </div>
+            <div class="field">
+                <p>Фамилия, имя, отчество</p>
+                <input type="text" name="person-name">
+                <div class="switch">
+                    <div class="align-left option"></div>
+                    <div class="align-center option selected"></div>
+                    <div class="align-right option borderless"></div>
+                </div>
+                <div class="switch">
+                    <div class="option">24px</div>
+                    <div class="option selected">26px</div>
+                    <div class="option borderless">28px</div>
+                </div>
+                <div class="color-switch">
+                    <div class="color-option black color-selected"></div>
+                    <div class="color-option blue"></div>
+                    <div class="color-option red"></div>
+                    <div class="color-option green"></div>
+                    <div class="color-option yellow"></div>
+                    <div class="color-option purple"></div>
+                </div>
+            </div>
+            <div class="field">
+                <p>Должность</p>
+                <input type="text" name="position">
+                <div class="switch">
+                    <div class="align-left option"></div>
+                    <div class="align-center option selected"></div>
+                    <div class="align-right option borderless"></div>
+                </div>
+                <div class="switch">
+                    <div class="option">14px</div>
+                    <div class="option selected">16px</div>
+                    <div class="option borderless">18px</div>
+                </div>
+                <div class="color-switch">
+                    <div class="color-option с1 color-selected"></div>
+                    <div class="color-option с2"></div>
+                    <div class="color-option с3"></div>
+                    <div class="color-option с4"></div>
+                    <div class="color-option с5"></div>
+                    <div class="color-option с6"></div>
+                </div>
+            </div>
+            <div class="field">
+                <p>Телефон</p>
+                <input type="text" name="phone-number">
+            </div>
+            <div class="field">
+                <p>E-mail</p>
+                <input type="text" name="email">
+            </div>
+            <div class="field">
+                <p>Адрес</p>
+                <input type="text" name="address">
+            </div>
+            <div class="field">
+                <input type="button" value="Применить">
+            </div>
+        </div>
         <div class="display"></div>
     </div>
 </body>
