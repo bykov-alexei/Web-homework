@@ -26,9 +26,13 @@ body {
 }
 
 .display {
+    display: inline-block;
+
     width: 445px;
     height: 268px;
-    display: inline-block;
+    margin-top: 78px;
+
+    vertical-align: top;
 
     background: white;
     box-shadow: 0 0 6px #00000029;
@@ -74,10 +78,15 @@ input[type="button"] {
 
     background: #3F88E8;
     border-radius: 32px;
+    border-width: 0px;
 
     font: normal 14px/17px Roboto;
     letter-spacing: 0;
     color: white;
+}
+
+.field div {
+    vertical-align: middle;
 }
 
 .switch {
@@ -90,11 +99,16 @@ input[type="button"] {
 }
 
 .option {
-    display: inline-block;
+    display: table-cell;
     height: 24px;
     width: 31px;
 
+    padding-left: 2px;
+    padding-right: 2px;
+
     text-align: center;
+    vertical-align: middle;
+
     font: normal 12px/14px Roboto;
     color: #202020;
 
@@ -183,4 +197,49 @@ input[type="button"] {
     width: 10px;
     height: 10px;
     border: 7px solid;
+}
+
+.company-name {
+    margin-top: 22px;
+
+    text-align: center;
+    font: normal 10px/13px Roboto;
+    letter-spacing: 0;
+    color: #202020;
+}
+
+.person-name {
+    margin-top: 32px;
+
+    text-align: center;
+    font: Bold 26px/32px Roboto;
+    letter-spacing: 0;
+    color: #202020;
+}
+
+.position {
+    margin-top: 8px;
+    margin-bottom: 20px;
+
+    text-align: center;
+    font: normal 14px/17px Roboto;
+    letter-spacing: 0;
+    color: #474747;
+}
+
+.additional {
+    margin-left: 222px;
+    margin-bottom: 10px;
+
+    text-align: left;
+    font: normal 12px/14px Roboto;
+    letter-spacing: 0;
+    color: #202020;
+}
+
+.additional p {
+    margin-bottom: 10px;
+
+    font: inherit;
+    color: inherit;
 }
