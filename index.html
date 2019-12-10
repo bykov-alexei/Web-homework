@@ -7,86 +7,89 @@
 </head>
 <body>
     <div class="wrapper">
-        <div class="editor">
-            <h1>Конструктор визиток</h1>
-            <div class="field">
-                <p>Наименование организации</p>
-                <input type="text" name="company-name" value="ООО &quotОриентир&quot">
-            </div>
-            <div class="field">
-                <p>Фамилия, имя, отчество</p>
-                <div>
-                    <input type="text" name="person-name" value="Фёдoров Иван Семенович">
-                    <div class="switch">
-                        <div class="align-left option"></div>
-                        <div class="align-center option selected"></div>
-                        <div class="align-right option borderless"></div>
-                    </div>
-                    <div class="switch">
-                        <div class="option">24px</div>
-                        <div class="option selected">26px</div>
-                        <div class="option borderless">28px</div>
-                    </div>
-                    <div class="color-switch">
-                        <div class="color-option black color-selected"></div>
-                        <div class="color-option blue"></div>
-                        <div class="color-option red"></div>
-                        <div class="color-option green"></div>
-                        <div class="color-option yellow"></div>
-                        <div class="color-option purple"></div>
-                    </div>
+        <div id="first-constructor">
+            <div class="editor">
+                <h1>Конструктор визиток</h1>
+                <div class="field">
+                    <p>Наименование организации</p>
+                    <input type="text" name="company-name" value="ООО &quotОриентир&quot">
                 </div>
-            </div>
-            <div class="field">
-                <p>Должность</p>
+                <div class="field">
+                    <p>Фамилия, имя, отчество</p>
                     <div>
-                    <input type="text" name="position" value="Менеджер по развитию">
-                    <div class="switch">
-                        <div class="align-left option"></div>
-                        <div class="align-center option selected"></div>
-                        <div class="align-right option borderless"></div>
-                    </div>
-                    <div class="switch">
-                        <div class="option">14px</div>
-                        <div class="option selected">16px</div>
-                        <div class="option borderless">18px</div>
-                    </div>
-                    <div class="color-switch">
-                        <div class="color-option c1 color-selected"></div>
-                        <div class="color-option c2"></div>
-                        <div class="color-option c3"></div>
-                        <div class="color-option c4"></div>
-                        <div class="color-option c5"></div>
-                        <div class="color-option c6"></div>
+                        <input type="text" name="person-name" value="Фёдoров Иван Семенович">
+                        <div class="align switch">
+                            <div class="align-left option"></div>
+                            <div class="align-center option selected"></div>
+                            <div class="align-right option borderless"></div>
+                        </div>
+                        <div class="size switch">
+                            <div class="option">24px</div>
+                            <div class="option selected">26px</div>
+                            <div class="option borderless">28px</div>
+                        </div>
+                        <div class="color-switch">
+                            <div class="color-option black color-selected"></div>
+                            <div class="color-option blue"></div>
+                            <div class="color-option red"></div>
+                            <div class="color-option green"></div>
+                            <div class="color-option yellow"></div>
+                            <div class="color-option purple"></div>
+                        </div>
                     </div>
                 </div>
+                <div class="field">
+                    <p>Должность</p>
+                        <div>
+                        <input type="text" name="position" value="Менеджер по развитию">
+                        <div class="switch align">
+                            <div class="align-left option"></div>
+                            <div class="align-center option selected"></div>
+                            <div class="align-right option borderless"></div>
+                        </div>
+                        <div class="switch size">
+                            <div class="option">14px</div>
+                            <div class="option selected">16px</div>
+                            <div class="option borderless">18px</div>
+                        </div>
+                        <div class="color-switch">
+                            <div class="color-option c1 color-selected"></div>
+                            <div class="color-option c2"></div>
+                            <div class="color-option c3"></div>
+                            <div class="color-option c4"></div>
+                            <div class="color-option c5"></div>
+                            <div class="color-option c6"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="field">
+                    <p>Телефон</p>
+                    <input type="text" name="phone-number" value="8 (999) 123-45-67">
+                </div>
+                <div class="field">
+                    <p>E-mail</p>
+                    <input type="text" name="email" value="fedorov.is@orientir.org">
+                </div>
+                <div class="field">
+                    <p>Адрес</p>
+                    <input type="text" name="address" value="Иркутск, Байкальская, 421, оф. 12">
+                </div>
+                <div class="field">
+                    <input type="button" value="Применить" onclick="apply('first-constructor')">
+                </div>
             </div>
-            <div class="field">
-                <p>Телефон</p>
-                <input type="text" name="phone-number" value="8 (999) 123-45-67">
+            <div class="display">
+                <p class="company-name"></p>
+                <p class="person-name"></p>
+                <p class="position"></p>
+                <div class="additional">
+                    <p></p>
+                </div>
+                <p class="additional"></p>
+                <p class="additional"></p>
             </div>
-            <div class="field">
-                <p>E-mail</p>
-                <input type="text" name="email" value="fedorov.is@orientir.org">
-            </div>
-            <div class="field">
-                <p>Адрес</p>
-                <input type="text" name="address" value="Иркутск, Байкальская, 421, оф. 12">
-            </div>
-            <div class="field">
-                <input type="button" value="Применить">
-            </div>
-        </div>
-        <div class="display">
-            <p class="company-name">ООО &quotОриентир&quot</p>
-            <p class="person-name">Фёдoров Иван Семенович</p>
-            <p class="position">Менеджер по развитию</p>
-            <div class="additional">
-                <p>8 (999) 123-45-67</p>
-            </div>
-            <p class="additional">fedorov.is@orientir.org</p>
-            <p class="additional">Иркутск, Байкальская, 421, оф. 12</p>
         </div>
     </div>
+    <script src="app.js"></script>
 </body>
 </html>

@@ -196,8 +196,9 @@ input[type="button"] {
 .color-selected {
     width: 10px;
     height: 10px;
-    border: 7px solid;
+    border-width: 7px;
 }
+
 
 .company-name {
     margin-top: 22px;
