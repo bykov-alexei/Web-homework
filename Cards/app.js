@@ -13,12 +13,13 @@ function apply(form_id) {
          filter(s => (s.substring(0, "align".length) === "align"))[0].split('-')[1];
     let person_size = person_input.parentNode.querySelector(".size .selected").innerText;
     let person_color = window.getComputedStyle(person_input.parentNode.querySelector(".color-switch .color-selected")).borderRightColor;
-    alert(person_color.currentStyle);
+
     let position_input = find_input(form, 'position')[0];
     let position = position_input.value;
     let position_align = Array.prototype.slice.call(position_input.parentNode.querySelector(".align .selected").classList).
-    filter(s => (s.substring(0, "align".length) === "align"))[0].split('-')[1];
+        filter(s => (s.substring(0, "align".length) === "align"))[0].split('-')[1];
     let position_size = position_input.parentNode.querySelector(".size .selected").innerText;
+    let position_color = window.getComputedStyle(position_input.parentNode.querySelector('.color-switch .color-selected')).borderRightColor;
 
     let phones = Array.prototype.slice.call(find_input(form, 'phone-number')).map(input => input.value);
     let email = find_input(form, 'email')[0].value;
@@ -36,10 +37,12 @@ function apply(form_id) {
     name_display.innerText = person;
     name_display.style.textAlign = person_align;
     name_display.style.fontSize = person_size;
+    name_display.style.color = person_color;
 
     position_display.innerText = position;
     position_display.style.textAlign = position_align;
     position_display.style.fontSize = position_size;
+    position_display.style.color = position_color;
 
     phones_display.innerHTML = "";
     for (let phone of phones) {
@@ -68,6 +71,13 @@ function onOptionChange(event) {
     event.target.classList.add('selected');
 }
 
+function addPhone(event) {
+    let next_field = event.target;
+    let field = next_field.previousElementSibling;
+    let editor = next_field.parentNode;
+    editor.insertBefore(field.cloneNode(true), next_field);
+}
+
 
 let color_options = document.querySelectorAll(".color-option");
 for (let option of color_options) {
@@ -77,4 +87,9 @@ for (let option of color_options) {
 let options = document.querySelectorAll(".option");
 for (let option of options) {
     option.addEventListener('click', onOptionChange);
+}
+
+let abuttons = document.querySelectorAll(".add-button");
+for (let button of abuttons) {
+    button.addEventListener('click', addPhone);
 }

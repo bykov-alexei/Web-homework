@@ -17,7 +17,7 @@ body {
 
 .editor {
     width: 570px;
-    height: 99vh;
+    min-height: 99vh;
     display: inline-block;
 
     margin-right: 65px;
@@ -28,9 +28,11 @@ body {
 .display {
     display: inline-block;
 
-    width: 445px;
-    height: 268px;
+    width: 425px;
+    height: 248px;
     margin-top: 78px;
+
+    padding: 10px;
 
     vertical-align: top;
 
@@ -45,7 +47,7 @@ body {
     margin-left: 15px;
 }
 
-h1, p {
+h1, p, span {
     color: #707070;
 }
 
@@ -54,7 +56,7 @@ h1 {
     font: bold 20px/24px Roboto;
 }
 
-p {
+p, span {
     margin: 0 auto 9px 0;
     font: normal 14px/17px Roboto;
 }
@@ -83,6 +85,19 @@ input[type="button"] {
     font: normal 14px/17px Roboto;
     letter-spacing: 0;
     color: white;
+}
+
+input[type=checkbox] {
+    width: 17px;
+    height: 17px;
+
+    vertical-align: middle;
+
+    margin-left: 30px;
+}
+
+input[type=checkbox]::after {
+    content: "hello";
 }
 
 .field div {
@@ -116,7 +131,7 @@ input[type="button"] {
 }
 
 .borderless {
-    border-right: 0px;
+    border-right: 0;
 }
 
 .align-left {
@@ -243,4 +258,11 @@ input[type="button"] {
 
     font: inherit;
     color: inherit;
+}
+
+.add-button {
+    height: 17px;
+    width: 17px;
+
+    background: url("imgs/Group 416.svg");
 }
