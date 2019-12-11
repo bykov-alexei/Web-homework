@@ -76,9 +76,19 @@ function addPhone(event) {
     let field = next_field.previousElementSibling;
     let editor = next_field.parentNode;
     editor.insertBefore(field.cloneNode(true), next_field);
+    let dbuttons = document.querySelectorAll('.remove-button');
+    for (let button of dbuttons) {
+        button.addEventListener('click', removePhone);
+    }
 }
 
+function removePhone(event) {
+    let container = event.target.parentNode;
+    let editor = container.parentNode;
 
+    container.remove();
+    let buttons = container.parentNode.querySelectorAll(".field > .remove-button");
+}
 let color_options = document.querySelectorAll(".color-option");
 for (let option of color_options) {
     option.addEventListener("click", onColorChange);
@@ -92,4 +102,9 @@ for (let option of options) {
 let abuttons = document.querySelectorAll(".add-button");
 for (let button of abuttons) {
     button.addEventListener('click', addPhone);
+}
+
+let dbuttons = document.querySelectorAll('.remove-button');
+for (let button of dbuttons) {
+    button.addEventListener('click', removePhone);
 }
