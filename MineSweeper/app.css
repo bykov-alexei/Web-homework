@@ -34,8 +34,10 @@ body {
 }
 
 .cell {
-    width: 20px;
-    height: 20px;
+    box-sizing: border-box;
+
+    width: 44px;
+    height: 44px;
 
     display: inline-flex;
     vertical-align: middle;
@@ -44,12 +46,11 @@ body {
     margin-right: 8px;
     margin-bottom: 8px;
 
-    padding: 9px;
+    padding: 7px;
 
-    background: #BBBBBB;
     border: 1px solid #707070;
 
-    font: Bold 20px Roboto;
+    font: Bold 24px Roboto;
     color: #707070;
 }
 
@@ -57,12 +58,49 @@ body {
     background: white;
 }
 
-.cell.flagged {
-    background: transparent url("imgs/flag.svg") center;
+.cell.flagged:not(.opened) {
+    background: #BBBBBB url("imgs/flag.svg") center no-repeat;
 }
 
 .cell.bombed {
-    background: red url("imgs/bomb.svg") center;
+    background: red url("imgs/bomb.svg") center no-repeat;
+}
+
+.cell:not(.opened) {
+    background: #BBBBBB;
+    font: normal 0 Roboto;
+}
+
+.cell.c1 {
+    color: blue;
+}
+
+.cell.c2 {
+    color: green;
+}
+
+.cell.c3 {
+    color: red;
+}
+
+.cell.c4 {
+    color: darkblue;
+}
+
+.cell.c5 {
+    color: darkred;
+}
+
+.cell.c6 {
+    color: darkgreen;
+}
+
+.cell.c7 {
+    color: mediumaquamarine;
+}
+
+.cell.c8 {
+    color: darkmagenta;
 }
 
 .settings {
@@ -79,7 +117,7 @@ body {
     text-align: center;
     background: white;
 
-    font: bold 30px Rubic;
+    font: bold 30px Roboto;
 }
 
 input {
@@ -87,6 +125,7 @@ input {
     height: 38px;
 
     padding-left: 20px;
+    margin-bottom: 20px;
 
     text-align: center;
 
@@ -97,12 +136,7 @@ input {
     font: inherit;
 }
 
-input::placeholder {
-    font: inherit;
-    color: gray;
-}
-
-button {
+.start-button {
     background: #3F88E8;
 
     width: 150px;
