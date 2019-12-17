@@ -31,7 +31,6 @@ function cellClicked(event) {
     let x, y;
     for (x = 0; row.children[x] !== cell; x++);
     for (y = 0; field.children[y] !== row; y++);
-
     let opened_cells = field.querySelectorAll(".opened");
     if (opened_cells.length === 0) {
         let cEvent = new CustomEvent("mine.start", {detail: {x: x, y: y}});
@@ -52,7 +51,7 @@ function cellFlagged(event) {
 }
 
 function getCell(field, i, j) {
-    return field.querySelectorAll(".row")[i].querySelectorAll(".cell")[j];
+    return field.querySelectorAll(".row")[j].querySelectorAll(".cell")[i];
 }
 
 function openCell(cell) {
@@ -156,6 +155,62 @@ function end(event) {
     }
 }
 
+function keyboardHandler(event) {
+    console.log(event.key);
+    let field = document.querySelector('.field');
+    let cell = field.querySelector('.selected');
+
+    if (!cell) {
+        let cell = field.querySelectorAll('.cell')[0];
+        cell.classList.add('selected');
+        return;
+    }
+
+
+    let row = cell.parentNode;
+    let x, y;
+    for (x = 0; row.children[x] !== cell; x++);
+    for (y = 0; field.children[y] !== row; y++);
+    if (event.key === 'ArrowUp') {
+        let upper_row = row.previousSibling;
+        if (!upper_row) {
+            upper_row = row.parentNode.lastChild;
+        }
+        upper_row.children[x].classList.add('selected');
+        cell.classList.remove('selected');
+
+
+    } else if (event.key === 'ArrowDown') {
+        let lower_row = row.nextSibling;
+        if (!lower_row) {
+            lower_row = row.parentNode.firstChild;
+        }
+        lower_row.children[x].classList.add('selected');
+        cell.classList.remove('selected');
+    } else if (event.key === 'ArrowRight') {
+        let next_cell = cell.nextSibling;
+        if (!next_cell) {
+            next_cell = row.firstChild;
+        }
+        cell.classList.remove('selected');
+        next_cell.classList.add('selected');
+    } else if (event.key === 'ArrowLeft') {
+        let prev_cell = cell.previousSibling;
+        if (!prev_cell) {
+            prev_cell = row.lastChild;
+        }
+        cell.classList.remove('selected');
+        prev_cell.classList.add('selected');
+    } else if (event.key === ' ' || event.key === 'Enter') {
+        if (event.ctrlKey === true) {
+            cellFlagged({target: cell});
+        } else {
+            cellClicked({target: cell});
+        }
+    }
+
+}
+
 
 
 let startButtons = document.querySelectorAll('.start-button');
@@ -172,4 +227,5 @@ for (let field of fields) {
 window.oncontextmenu = function () {
     return false;
 };
+document.addEventListener('keyup', keyboardHandler);
 
