@@ -1,74 +1,108 @@
-@import url('https://fonts.googleapis.com/css?family=Rubik:400,700&display=swap&subset=cyrillic');
+@import url('https://fonts.googleapis.com/css?family=Roboto:400,700&display=swap');
 
-body {
-    background: #BBBBBB;
+* {
+    box-sizing: border-box;
 }
 
-#wrapper {
-    display: table;
-
-    margin: auto;
-
-    vertical-align: middle;
+html {
+    background: #FFFFFF;
+    font: bold 20px/24px Roboto;
+    color: #707070;
 }
 
-.field-wrapper {
+input {
+    height: 24px;
+    width: 50px;
+
+    padding: 2px;
+
+    border: 1px solid #AAAAAABF;
+    border-radius: 2px;
+
+    float: right;
+    margin-left: 10px;
+
+    font: inherit;
+}
+
+button {
+    width: 126px;
+    height: 26px;
+
+    border: none;
+    border-radius: 32px;
+
+    background: #3F88E8;
+
+    font: normal 14px/17px Roboto;
+    color: #FFF;
+}
+
+.wrapper {
     display: inline-block;
-
-    width: 80vh;
-    height: 80vh;
-
-    margin-right: 50px;
-    padding: 50px;
-
-    border-radius: 25px;
-
-    background: white;
 }
 
 .field {
-    display: table-cell;
-
     vertical-align: middle;
-    margin: auto;
+
+    min-width: 500px;
+    min-height: 500px;
+}
+
+.field, .interface {
+    display: inline-block;
+}
+
+.field, .settings, .results {
+    padding: 12px;
+    margin: 20px;
+
+    box-shadow: 0 6px 12px #00000029;
+    border: 1px solid #707070A8;
+    border-radius: 6px;
+    text-align: center;
+}
+
+.settings, .results {
+    vertical-align: top;
+}
+
+.settings>div {
+    margin: 10px;
 }
 
 .cell {
-    box-sizing: border-box;
-
-    width: 44px;
-    height: 44px;
-
-    display: inline-flex;
+    display: inline-block;
     vertical-align: middle;
-    justify-content: center;
 
-    margin-right: 8px;
-    margin-bottom: 8px;
+    width: 40px;
+    height: 40px;
 
-    padding: 7px;
+    margin: 4px;
+    padding: 8px;
 
+    background: #BBBBBB;
     border: 1px solid #707070;
 
-    font: Bold 24px Roboto;
-    color: #707070;
+    font: inherit;
+    color: inherit;
+    text-align: center;
+}
+
+.cell:not(.opened) {
+    font-size: 0;
 }
 
 .cell.opened {
     background: white;
 }
 
-.cell.flagged:not(.opened) {
-    background: #BBBBBB url("imgs/flag.svg") center no-repeat;
-}
-
 .cell.bombed {
-    background: red url("imgs/bomb.svg") center no-repeat;
+    background: #C42828 url("imgs/bomb.svg") center no-repeat;
 }
 
-.cell:not(.opened) {
-    background: #BBBBBB;
-    font: normal 0 Roboto;
+.cell.flagged {
+    background: url("imgs/flag.svg") center no-repeat;
 }
 
 .cell.c1 {
@@ -101,55 +135,4 @@ body {
 
 .cell.c8 {
     color: darkmagenta;
-}
-
-.cell.selected {
-    border: 2px solid #04BEEE80;
-    border-radius: 2px;
-}
-
-.settings {
-    display: inline-block;
-    vertical-align: top;
-
-    width: 300px;
-    /*height: 99vh;*/
-
-    padding: 50px;
-
-    border-radius: 50px;
-
-    text-align: center;
-    background: white;
-
-    font: bold 30px Roboto;
-}
-
-input {
-    width: 250px;
-    height: 38px;
-
-    padding-left: 20px;
-    margin-bottom: 20px;
-
-    text-align: center;
-
-    border: 1px solid #000000;
-    border-radius: 20px;
-    color: black;
-
-    font: inherit;
-}
-
-.start-button {
-    background: #3F88E8;
-
-    width: 150px;
-    height: 50px;
-
-    border: none;
-    border-radius: 25px;
-
-    font: inherit;
-    color: white;
 }

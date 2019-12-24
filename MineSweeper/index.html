@@ -7,22 +7,42 @@
 </head>
 <body>
     <div id="wrapper">
-        <div class="field-wrapper">
-            <div class="field">
-                <div class="cell">1</div>
-                <div class="cell">2</div>
-                <div class="cell">3</div>
-                <div class="cell">4</div>
-                <div class="cell">5</div>
-                <div class="cell selected">6</div>
-                <div class="cell">7</div>
-                <div class="cell">8</div>
+        <div class="field">
+            <div class="row">
+                <div class="cell c1">1</div>
+                <div class="cell opened c2">2</div>
+                <div class="cell opened bombed"></div>
+                <div class="cell opened c4">4</div>
+                <div class="cell bombed"></div>
+                <div class="cell"></div>
+                <div class="cell flagged"></div>
+                <div class="cell"></div>
+                <div class="cell"></div>
+                <div class="cell"></div>
+            </div>
+            <div class="row">
+                <div class="cell c1">1</div>
+                <div class="cell opened c2">2</div>
+                <div class="cell opened bombed"></div>
+                <div class="cell opened c4">4</div>
+                <div class="cell bombed"></div>
+                <div class="cell"></div>
+                <div class="cell"></div>
+                <div class="cell"></div>
+                <div class="cell"></div>
+                <div class="cell"></div>
             </div>
         </div>
-        <div class="settings">
-            <input value="10">
-            <input value="9">
-            <button class="start-button">Начать</button>
+        <div class="interface">
+            <div class="results">
+                <p>0 сек.</p>
+                <p>Игра не начата</p>
+            </div>
+            <div class="settings">
+                <div>Размер поля <input value="10"></div>
+                <div>Количество мин <input value="10"></div>
+                <button>Начать</button>
+            </div>
         </div>
     </div>
 
