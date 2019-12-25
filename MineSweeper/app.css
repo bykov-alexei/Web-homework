@@ -1,59 +1,50 @@
 @import url('https://fonts.googleapis.com/css?family=Roboto:400,700&display=swap');
 
 * {
+    padding: 0;
+    margin: 0;
     box-sizing: border-box;
 }
 
-html {
-    background: #FFFFFF;
-    font: bold 20px/24px Roboto;
-    color: #707070;
+#wrapper {
+    display: table;
+
+    width: 100%;
+    height: 100vh;
 }
 
-input {
-    height: 24px;
-    width: 50px;
-
-    padding: 2px;
-
-    border: 1px solid #AAAAAABF;
-    border-radius: 2px;
-
-    float: right;
-    margin-left: 10px;
-
-    font: inherit;
-}
-
-button {
-    width: 126px;
-    height: 26px;
-
-    border: none;
-    border-radius: 32px;
-
-    background: #3F88E8;
-
-    font: normal 14px/17px Roboto;
-    color: #FFF;
-}
-
-.wrapper {
+.field-wrapper {
     display: inline-block;
-}
+    width: 70%;
+    height: 100vh;
 
-.field {
-    vertical-align: middle;
-
-    min-width: 500px;
-    min-height: 500px;
+    text-align: center;
+    background: aqua;
 }
 
 .field, .interface {
     display: inline-block;
+    text-align: center;
 }
 
-.field, .settings, .results {
+.field {
+    min-width: 200px;
+    min-height: 200px;
+    background: red;
+}
+
+.interface {
+    width: 30%;
+
+    float: right;
+
+    min-width: 10px;
+
+    height: 100vh;
+    background: green;
+}
+
+.window  {
     padding: 12px;
     margin: 20px;
 
@@ -61,13 +52,12 @@ button {
     border: 1px solid #707070A8;
     border-radius: 6px;
     text-align: center;
+
+    background: white;
+
 }
 
-.settings, .results {
-    vertical-align: top;
-}
-
-.settings>div {
+.window>* {
     margin: 10px;
 }
 
@@ -135,4 +125,38 @@ button {
 
 .cell.c8 {
     color: darkmagenta;
+}
+
+html {
+    background: #FFFFFF;
+    font: bold 20px/24px Roboto;
+    color: #707070;
+}
+
+input {
+    height: 24px;
+    width: 50px;
+
+    padding: 2px;
+
+    border: 1px solid #AAAAAABF;
+    border-radius: 2px;
+
+    float: right;
+    margin-left: 10px;
+
+    font: inherit;
+}
+
+button {
+    width: 126px;
+    height: 26px;
+
+    border: none;
+    border-radius: 32px;
+
+    background: #3F88E8;
+
+    font: normal 14px/17px Roboto;
+    color: #FFF;
 }

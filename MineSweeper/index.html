@@ -1,51 +1,49 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ru">
 <head>
+    <link rel="stylesheet" href="test.css">
     <meta charset="UTF-8">
-    <link rel="stylesheet" href="app.css">
-    <title>MineSweeper</title>
+    <title>Test</title>
 </head>
 <body>
     <div id="wrapper">
-        <div class="field">
-            <div class="row">
-                <div class="cell c1">1</div>
-                <div class="cell opened c2">2</div>
-                <div class="cell opened bombed"></div>
-                <div class="cell opened c4">4</div>
-                <div class="cell bombed"></div>
-                <div class="cell"></div>
-                <div class="cell flagged"></div>
-                <div class="cell"></div>
-                <div class="cell"></div>
-                <div class="cell"></div>
-            </div>
-            <div class="row">
-                <div class="cell c1">1</div>
-                <div class="cell opened c2">2</div>
-                <div class="cell opened bombed"></div>
-                <div class="cell opened c4">4</div>
-                <div class="cell bombed"></div>
-                <div class="cell"></div>
-                <div class="cell"></div>
-                <div class="cell"></div>
-                <div class="cell"></div>
-                <div class="cell"></div>
+        <div class="field-wrapper">
+            <div class="field window">
+                <div class="row">
+                    <div class="cell c1">1</div>
+                    <div class="cell opened c2">2</div>
+                    <div class="cell opened bombed"></div>
+                    <div class="cell opened c4">4</div>
+                    <div class="cell bombed"></div>
+                    <div class="cell"></div>
+                    <div class="cell flagged"></div>
+                    <div class="cell"></div>
+                    <div class="cell"></div>
+                    <div class="cell"></div>
+                </div>
+                <div class="row">
+                    <div class="cell c1">1</div>
+                    <div class="cell opened c2">2</div>
+                    <div class="cell opened bombed"></div>
+                    <div class="cell opened c4">4</div>
+                    <div class="cell bombed"></div>
+                    <div class="cell"></div>
+                    <div class="cell"></div>
+                    <div class="cell"></div>
+                    <div class="cell"></div>
+                    <div class="cell"></div>
+                </div>
             </div>
         </div>
         <div class="interface">
-            <div class="results">
-                <p>0 сек.</p>
-                <p>Игра не начата</p>
+            <div class="stats window">
+
             </div>
-            <div class="settings">
-                <div>Размер поля <input value="10"></div>
-                <div>Количество мин <input value="10"></div>
-                <button>Начать</button>
+            <div class="settings window">
+                <p>Time: <span>12:24</span></p>
+                <button>Start</button>
             </div>
         </div>
     </div>
-
-    <script src="app.js"></script>
 </body>
 </html>
