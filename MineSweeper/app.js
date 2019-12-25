@@ -84,12 +84,24 @@ function step(event) {
     let x = event.detail.x;
     let y = event.detail.y;
     let cell = event.target.querySelector(`.cell[x='${x}'][y='${y}']`);
+    let field = cell.closest(".field");
+    let n = field.children.length;
     let wrapper = cell.closest("#wrapper");
 
     cell.classList.add('opened');
 
     if (cell.classList.contains('bombed')) {
         wrapper.dispatchEvent(new CustomEvent('mine.end', {detail: {result: 'lose'}}));
+    } else {
+        if (cell.innerHTML === "") {
+            for (let dy = ((y > 0) ? -1 : 0); dy <= ((y < n - 1) ? 1: 0); dy++) {
+                for (let dx = ((x > 0) ? -1 : 0); dx <= ((x < n - 1) ? 1 : 0); dx++) {
+                    let tmp = getCell(field, x + dx, y + dy);
+                    console.log(tmp);
+                    tmp.dispatchEvent(new Event("click", {bubbles: true}));
+                }
+            }
+        }
     }
     let notOpenedCells = document.querySelectorAll(".cell:not(.opened)");
     let mInput = wrapper.querySelector("input[name='bombs-number']");
