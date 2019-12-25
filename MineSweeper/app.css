@@ -78,6 +78,10 @@
     text-align: center;
 }
 
+.cell.focused {
+    outline: #04BEEE80 solid 2px;
+}
+
 .cell.opened {
     background: white;
 }

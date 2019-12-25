@@ -1,4 +1,5 @@
 window.oncontextmenu = function(){return false};
+document.addEventListener('keyup', keyboardHandler);
 
 let inputs = document.querySelectorAll("input");
 for (let input of inputs) {
@@ -61,7 +62,6 @@ function cellClicked(event) {
         return;
     if (event.target.classList.contains('flagged'))
         return;
-
     let cell = event.target;
     let field = cell.closest(".field");
     let wrapper = field.closest("#wrapper");
@@ -196,5 +196,46 @@ function endGame(event) {
     field.removeEventListener('click', cellClicked);
     field.removeEventListener('contextmenu', cellFlagged);
     clock.removeEventListener('increase-timer', increaseTimer);
+}
+
+function keyboardHandler(event) {
+    if (event.key === 'ArrowUp' || event.key === 'ArrowDown' || event.key === 'ArrowLeft' || event.key === 'ArrowRight' ||
+            event.key === ' ' || event.key === 'Enter') {
+
+        let field = document.querySelector('.field');
+        let focused = field.querySelector('.cell.focused');
+
+        if (!focused) {
+            let cell = field.firstChild.firstChild;
+            cell.classList.add('focused');
+            return;
+        }
+
+        if (event.key === ' ' || event.key === 'Enter') {
+            if (event.ctrlKey) {
+                focused.dispatchEvent(new Event("contextmenu", {bubbles: true}));
+            } else {
+                focused.dispatchEvent(new Event("click", {bubbles: true}));
+            }
+            return;
+        }
+
+
+        let x = +focused.getAttribute('x');
+        let y = +focused.getAttribute('y');
+        let n = field.children.length;
+        if (event.key === 'ArrowUp') {
+            y = (y + n - 1) % n;
+        } else if (event.key === 'ArrowDown') {
+            y = (y + 1) % n;
+        } else if (event.key === 'ArrowLeft') {
+            x = (x + n - 1) % n;
+        } else if (event.key === 'ArrowRight') {
+            x = (x + 1) % n;
+        }
+        let new_cell = field.querySelector(`.cell[x='${x}'][y='${y}']`);
+        new_cell.classList.add('focused');
+        focused.classList.remove('focused');
+    }
 }
 
