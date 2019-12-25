@@ -10,13 +10,13 @@
     display: table;
 
     width: 100%;
-    height: 100vh;
+    min-height: 100vh;
 }
 
 .field-wrapper {
     display: inline-block;
     width: 70%;
-    height: 100vh;
+    min-height: 100vh;
 
     text-align: center;
     background: aqua;
@@ -35,12 +35,11 @@
 
 .interface {
     width: 30%;
+    min-height: 100vh;
 
     float: right;
 
-    min-width: 10px;
 
-    height: 100vh;
     background: green;
 }
 
@@ -79,16 +78,17 @@
     text-align: center;
 }
 
-.cell:not(.opened) {
-    font-size: 0;
-}
-
 .cell.opened {
     background: white;
 }
 
 .cell.bombed {
     background: #C42828 url("imgs/bomb.svg") center no-repeat;
+}
+
+.cell:not(.opened) {
+    font-size: 0;
+    background: #BBBBBB;
 }
 
 .cell.flagged {

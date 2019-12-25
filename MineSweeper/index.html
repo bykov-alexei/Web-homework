@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-    <link rel="stylesheet" href="test.css">
+    <link rel="stylesheet" href="app.css">
     <meta charset="UTF-8">
     <title>Test</title>
 </head>
@@ -9,41 +9,19 @@
     <div id="wrapper">
         <div class="field-wrapper">
             <div class="field window">
-                <div class="row">
-                    <div class="cell c1">1</div>
-                    <div class="cell opened c2">2</div>
-                    <div class="cell opened bombed"></div>
-                    <div class="cell opened c4">4</div>
-                    <div class="cell bombed"></div>
-                    <div class="cell"></div>
-                    <div class="cell flagged"></div>
-                    <div class="cell"></div>
-                    <div class="cell"></div>
-                    <div class="cell"></div>
-                </div>
-                <div class="row">
-                    <div class="cell c1">1</div>
-                    <div class="cell opened c2">2</div>
-                    <div class="cell opened bombed"></div>
-                    <div class="cell opened c4">4</div>
-                    <div class="cell bombed"></div>
-                    <div class="cell"></div>
-                    <div class="cell"></div>
-                    <div class="cell"></div>
-                    <div class="cell"></div>
-                    <div class="cell"></div>
-                </div>
             </div>
         </div>
         <div class="interface">
-            <div class="stats window">
-
-            </div>
-            <div class="settings window">
-                <p>Time: <span>12:24</span></p>
-                <button>Start</button>
+            <div class="window">
+                <p class="status">Игра не начата</p>
+              <p class="timer">Время: <span>0</span> sec.</p>
+              <p>Размер поля<input type="number" min="1" name="field-size" value="4"></p>
+               <p>Количество мин <input type="number" min="1" name="bombs-number" value="4"></p>
+              <button>Начать</button>
             </div>
         </div>
     </div>
+
+    <script src="app.js"></script>
 </body>
 </html>
