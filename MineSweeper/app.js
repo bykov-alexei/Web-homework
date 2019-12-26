@@ -20,6 +20,7 @@ function drawField(event) {
     let interface = event.target.closest(".interface");
     let status = interface.querySelector('p.status');
     let clock = interface.querySelector('p.timer>span');
+    let counter = interface.querySelector('p.counter>span');
     clock.innerText = "0";
     status.style.color = "";
     status.innerText = "Игра не начата";
@@ -29,6 +30,7 @@ function drawField(event) {
     let mInput = interface.querySelector("input[name='bombs-number']");
     let n = +nInput.value;
     let m = +mInput.value;
+    counter.innerText = String(m);
 
     let wrapper = interface.parentElement;
     let field = wrapper.querySelector('.field');
@@ -56,6 +58,7 @@ function drawField(event) {
 }
 
 function cellClicked(event) {
+    console.log(event.target);
     if (!event.target.closest('.cell'))
         return;
     if (event.target.classList.contains('opened'))
@@ -77,7 +80,15 @@ function cellFlagged(event) {
     if (event.target.classList.contains('opened'))
         return;
     let cell = event.target;
-    cell.classList.toggle('flagged');
+    let res = cell.classList.toggle('flagged');
+    let counter = cell.closest('#wrapper').querySelector('p.counter>span');
+    let m_rem = +counter.innerText;
+    if (res) {
+        m_rem -= 1;
+    } else {
+        m_rem += 1;
+    }
+    counter.innerText = String(m_rem);
 }
 
 function step(event) {
@@ -97,7 +108,6 @@ function step(event) {
             for (let dy = ((y > 0) ? -1 : 0); dy <= ((y < n - 1) ? 1: 0); dy++) {
                 for (let dx = ((x > 0) ? -1 : 0); dx <= ((x < n - 1) ? 1 : 0); dx++) {
                     let tmp = getCell(field, x + dx, y + dy);
-                    console.log(tmp);
                     tmp.dispatchEvent(new Event("click", {bubbles: true}));
                 }
             }
@@ -211,9 +221,10 @@ function endGame(event) {
 }
 
 function keyboardHandler(event) {
+    // console.log('a');
     if (event.key === 'ArrowUp' || event.key === 'ArrowDown' || event.key === 'ArrowLeft' || event.key === 'ArrowRight' ||
             event.key === ' ' || event.key === 'Enter') {
-
+        // console.log('b');
         let field = document.querySelector('.field');
         let focused = field.querySelector('.cell.focused');
 
@@ -224,10 +235,13 @@ function keyboardHandler(event) {
         }
 
         if (event.key === ' ' || event.key === 'Enter') {
+            // console.log('c');
             if (event.ctrlKey) {
-                focused.dispatchEvent(new Event("contextmenu", {bubbles: true}));
+                // console.log(focused);
+                focused.dispatchEvent(new CustomEvent("contextmenu", {bubbles: true}));
             } else {
-                focused.dispatchEvent(new Event("click", {bubbles: true}));
+                // console.log(focused);
+                focused.dispatchEvent(new CustomEvent("click", {bubbles: true}));
             }
             return;
         }

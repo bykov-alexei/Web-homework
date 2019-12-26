@@ -73,6 +73,10 @@
     text-align: center;
 }
 
+.row {
+    margin: 0;
+}
+
 .cell.focused {
     outline: #04BEEE80 solid 2px;
 }
