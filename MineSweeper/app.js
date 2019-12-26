@@ -58,7 +58,6 @@ function drawField(event) {
 }
 
 function cellClicked(event) {
-    console.log(event.target);
     if (!event.target.closest('.cell'))
         return;
     if (event.target.classList.contains('opened'))
@@ -221,10 +220,8 @@ function endGame(event) {
 }
 
 function keyboardHandler(event) {
-    // console.log('a');
     if (event.key === 'ArrowUp' || event.key === 'ArrowDown' || event.key === 'ArrowLeft' || event.key === 'ArrowRight' ||
             event.key === ' ' || event.key === 'Enter') {
-        // console.log('b');
         let field = document.querySelector('.field');
         let focused = field.querySelector('.cell.focused');
 
@@ -235,12 +232,9 @@ function keyboardHandler(event) {
         }
 
         if (event.key === ' ' || event.key === 'Enter') {
-            // console.log('c');
             if (event.ctrlKey) {
-                // console.log(focused);
                 focused.dispatchEvent(new CustomEvent("contextmenu", {bubbles: true}));
             } else {
-                // console.log(focused);
                 focused.dispatchEvent(new CustomEvent("click", {bubbles: true}));
             }
             return;
