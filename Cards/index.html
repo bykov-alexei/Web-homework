@@ -65,7 +65,7 @@
                 <div class="field">
                     <p>Телефон</p>
                     <input type="text" name="phone-number" value="8 (999) 123-45-67">
-                    <button class="remove-button">Удалить</button>
+                    <div class="remove-button"></div>
                 </div>
                 <div class="add-button field">
                     <p></p>
@@ -74,13 +74,18 @@
                     <p>E-mail</p>
                     <input type="text" name="email" value="fedorov.is@orientir.org">
                     <input type="checkbox" class="display_choice" checked>
-                    <p style="display: inline-block">Отображать</p>
+                    <label class="container">Отображать
+                        <input type="checkbox" class="display_choice" checked>
+                        <span class="checkmark"></span>
+                    </label>
                 </div>
                 <div class="field">
                     <p>Адрес</p>
                     <input type="text" name="address" value="Иркутск, Байкальская, 421, оф. 12">
-                    <input type="checkbox" class="display_choice" checked>
-                    <p style="display: inline-block">Отображать</p>
+                    <label class="container">Отображать
+                        <input type="checkbox" class="display_choice" checked>
+                        <span class="checkmark"></span>
+                    </label>
                 </div>
                 <div class="field">
                     <input type="button" value="Применить" onclick="apply('first-constructor')">

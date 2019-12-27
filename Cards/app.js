@@ -23,10 +23,10 @@ function apply(form_id) {
 
     let phones = Array.prototype.slice.call(find_input(form, 'phone-number')).map(input => input.value);
     let email_input = find_input(form, 'email')[0];
-    let email_checkbox = email_input.nextElementSibling;
+    let email_checkbox = email_input.closest('.field').querySelector('span.checkmark');
     let email = email_input.value;
     let address_input = find_input(form, 'address')[0];
-    let address_checkbox = address_input.nextElementSibling;
+    let address_checkbox = address_input.closest('.field').querySelector('span.checkmark');
     let address = address_input.value;
 
     let company_display = form.querySelector(".display p.company-name");
@@ -56,9 +56,9 @@ function apply(form_id) {
     }
 
     email_display.innerText = email;
-    email_display.style.display = (email_checkbox.checked) ? 'inline-block' : 'none';
+    email_display.style.display = (window.getComputedStyle(email_checkbox, ":after").content !== "none") ? 'inline-block' : 'none';
     address_display.innerText = address;
-    address_display.style.display = (address_checkbox.checked) ? 'inline-block': 'none';
+    address_display.style.display = (window.getComputedStyle(address_checkbox, ":after").content !== "none") ? 'inline-block': 'none';
 }
 
 function onColorChange(event) {
@@ -87,17 +87,21 @@ function addPhone(event) {
     for (let button of dbuttons) {
         button.addEventListener('click', removePhone);
         button.style.display = 'inline-block';
+        let input = button.previousElementSibling;
+        input.style.width = '222px';
     }
 }
 
 function removePhone(event) {
-    let container = event.target.parentNode;
+    let container = event.target.closest('.field');
     let editor = container.parentNode;
 
     container.remove();
     let buttons = editor.parentNode.querySelectorAll(".field > .remove-button");
     if (buttons.length === 1) {
         buttons[0].style.display = 'none';
+        let input = buttons[0].previousElementSibling;
+        input.style.width = '255px';
     }
 }
 let color_options = document.querySelectorAll(".color-option");

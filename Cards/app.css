@@ -61,6 +61,11 @@ p, span {
     font: normal 14px/17px Roboto;
 }
 
+label {
+    font: normal 14px/17px Roboto;
+    color: #707070;
+}
+
 input[type="text"] {
     width: 245px;
     height: 14px;
@@ -80,22 +85,87 @@ input[type="button"] {
 
     background: #3F88E8;
     border-radius: 32px;
-    border-width: 0px;
+    border-width: 0;
 
     font: normal 14px/17px Roboto;
     letter-spacing: 0;
     color: white;
 }
 
-input[type=checkbox] {
-    width: 17px;
-    height: 17px;
+.container {
+    display: inline-block;
+    position: relative;
 
+    padding-left: 35px;
+
+    cursor: pointer;
+    user-select: none;
+}
+
+input[type=checkbox] {
+    display: inline;
     vertical-align: middle;
 
     margin-left: 30px;
 
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    height: 0;
+    width: 0;
+}
+
+input:focus {
+    outline: none;
+}
+
+.container input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    height: 0;
+    width: 0;
+}
+
+.checkmark {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 17px;
+    width: 17px;
+
+    border-radius: 2px;
+    background-color: #eee
+}
+
+.container:hover input ~ .checkmark {
+    background-color: #ccc;
+}
+
+.container input:checked ~ .checkmark {
     background-color: #707070;
+}
+
+.checkmark:after {
+    content: none;
+    position: absolute;
+    display: none;
+}
+
+.container input:checked ~ .checkmark:after {
+    display: block;
+    content: "m";
+    font-size: 0;
+}
+
+.container .checkmark:after {
+    left: 5px;
+    top: 1px;
+    width: 5px;
+    height: 10px;
+    border: solid white;
+    border-width: 0 3px 3px 0;
+    transform: rotate(45deg);
 }
 
 .field div {
@@ -150,6 +220,7 @@ input[type=checkbox] {
 
 .color-switch {
     margin-bottom: 18px;
+    font-size: 0;
 }
 
 .color-option {
@@ -274,5 +345,12 @@ input[type=checkbox] {
 
 .remove-button {
     display: none;
+    margin-left: -20px;
+
+    width: 17px;
+    height: 17px;
+
+    background: transparent url('imgs/Group 384.svg') 0% 0% no-repeat padding-box;
+    opacity: 1;
 }
 
