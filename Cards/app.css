@@ -94,10 +94,8 @@ input[type=checkbox] {
     vertical-align: middle;
 
     margin-left: 30px;
-}
 
-input[type=checkbox]::after {
-    content: "hello";
+    background-color: #707070;
 }
 
 .field div {
@@ -260,9 +258,21 @@ input[type=checkbox]::after {
     color: inherit;
 }
 
-.add-button {
+.add-button>p {
+
     height: 17px;
     width: 17px;
-
     background: url("imgs/Group 416.svg");
 }
+
+.add-button>p:after {
+    content: "Добавить еще один номер телефона";
+    display: inline-block;
+    margin-left: 23px;
+    width: 300px;
+}
+
+.remove-button {
+    display: none;
+}
+

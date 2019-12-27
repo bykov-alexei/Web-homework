@@ -22,8 +22,12 @@ function apply(form_id) {
     let position_color = window.getComputedStyle(position_input.parentNode.querySelector('.color-switch .color-selected')).borderRightColor;
 
     let phones = Array.prototype.slice.call(find_input(form, 'phone-number')).map(input => input.value);
-    let email = find_input(form, 'email')[0].value;
-    let address = find_input(form, 'address')[0].value;
+    let email_input = find_input(form, 'email')[0];
+    let email_checkbox = email_input.nextElementSibling;
+    let email = email_input.value;
+    let address_input = find_input(form, 'address')[0];
+    let address_checkbox = address_input.nextElementSibling;
+    let address = address_input.value;
 
     let company_display = form.querySelector(".display p.company-name");
     let name_display = form.querySelector(".display p.person-name");
@@ -52,7 +56,9 @@ function apply(form_id) {
     }
 
     email_display.innerText = email;
+    email_display.style.display = (email_checkbox.checked) ? 'inline-block' : 'none';
     address_display.innerText = address;
+    address_display.style.display = (address_checkbox.checked) ? 'inline-block': 'none';
 }
 
 function onColorChange(event) {
@@ -72,13 +78,15 @@ function onOptionChange(event) {
 }
 
 function addPhone(event) {
-    let next_field = event.target;
+    let next_field = event.target.closest('div.field');
     let field = next_field.previousElementSibling;
     let editor = next_field.parentNode;
-    editor.insertBefore(field.cloneNode(true), next_field);
+    let new_field = field.cloneNode(true);
+    editor.insertBefore(new_field, next_field);
     let dbuttons = document.querySelectorAll('.remove-button');
     for (let button of dbuttons) {
         button.addEventListener('click', removePhone);
+        button.style.display = 'inline-block';
     }
 }
 
@@ -87,7 +95,10 @@ function removePhone(event) {
     let editor = container.parentNode;
 
     container.remove();
-    let buttons = container.parentNode.querySelectorAll(".field > .remove-button");
+    let buttons = editor.parentNode.querySelectorAll(".field > .remove-button");
+    if (buttons.length === 1) {
+        buttons[0].style.display = 'none';
+    }
 }
 let color_options = document.querySelectorAll(".color-option");
 for (let option of color_options) {
