@@ -1,0 +1,233 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto:400,700&display=swap');
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font: normal 14px/17px Roboto;
+}
+
+body {
+    background: url("imgs/Image 3.png");
+}
+
+#wrapper {
+    display: table;
+    margin: auto;
+}
+
+.task-list {
+    display: inline-block;
+
+    width: 570px;
+    min-height: 100vh;
+
+    background: #FFFFFF;
+    box-shadow: 0 0 6px #00000029;
+}
+
+.task-edit {
+    display: inline-block;
+    margin-top: 71px;
+    position: sticky;
+
+    vertical-align: top;
+    padding: 0 30px;
+
+    width: 555px;
+    height: 212px;
+
+    background: #FFFFFF;
+    box-shadow: 0 0 6px #00000029;
+    border-radius: 0 14px 14px 0;
+
+    opacity: 0;
+}
+
+.task-edit>h1 {
+    margin: 30px 0 7px 0;
+
+    text-align: left;
+    font: normal 18px/22px Roboto;
+    letter-spacing: 0;
+    color: #000000;
+}
+
+.task-edit>p {
+    margin-top: 7px;
+    margin-bottom: 5px;
+
+    text-align: left;
+    font: normal 14px/17px Roboto;
+    letter-spacing: 0;
+    color: #707070;
+}
+
+.task-edit>input {
+    width: 510px;
+    height: 24px;
+
+    padding: 4px 5px 3px 5px;
+
+    background: #FFFFFF 0% 0% no-repeat padding-box;
+    border: 1px solid #AAAAAABF;
+    border-radius: 2px;
+}
+
+.task-edit>input::placeholder {
+    font: normal 14px/17px Roboto;
+    color: #202020;
+}
+
+.task-edit>.custom-checkbox {
+    margin-top: 15px;
+    margin-bottom: 17px;
+
+    cursor: pointer;
+}
+
+.task-edit>.custom-checkbox:before {
+    content: url("imgs/checkbox-empty.svg");
+    vertical-align: middle;
+    font-size: 25px;
+    width: 17px;
+    height: 17px;
+    cursor: pointer;
+}
+
+.task-edit>.custom-checkbox.checkbox-checked:before {
+    content: url("imgs/checkbox.svg");
+}
+
+.task-edit>.custom-checkbox:after {
+    content: url("imgs/hiprio.svg");
+    vertical-align: middle;
+    font-size: 25px;
+    width: 17px;
+    height: 17px;
+}
+
+.task-edit>button {
+    height: 32px;
+
+    margin-right: 15px;
+
+    padding: 0 28px 0 28px;
+
+    background: #3F88E8 0% 0% no-repeat padding-box;
+    border: none;
+    border-radius: 32px;
+
+    text-align: center;
+    font: normal 14px/17px Roboto;
+    letter-spacing: 0;
+    color: #FFFFFF;
+
+    cursor: pointer;
+}
+
+.task-edit>.cancel-button {
+    background: white;
+    border: 1px solid #707070;
+    color: #707070;
+}
+
+.task-list>h1 {
+    margin-left: 15px;
+    margin-top: 32px;
+    margin-bottom: 15px;
+
+    font: Bold 20px/24px Roboto;
+    color: #707070;
+}
+
+.task-list>.add-button {
+    float: right;
+    margin-right: 15px;
+
+    cursor: pointer;
+}
+
+.task-list>.add-button:before {
+    content: url("imgs/Group 416.svg");
+
+    vertical-align: middle;
+    font-size: 25px;
+
+    margin-right: 12px;
+    cursor: pointer;
+}
+
+.task-list>p {
+    text-align: left;
+    font: normal 14px/17px Roboto;
+    letter-spacing: 0;
+    color: #707070;
+}
+
+.task-list>.task-field {
+    padding: 12px 0 11px 15px;
+
+    font: normal 14px/17px Roboto;
+    letter-spacing: 0;
+    color: #707070;
+}
+
+.edit-button, .remove-button {
+    display: inline-block;
+
+    float: right;
+    width: 20px;
+    height: 20px;
+
+    margin-right: 15px;
+
+    cursor: pointer;
+}
+
+.edit-button {
+    background: url("imgs/pencil.svg");
+}
+
+.remove-button {
+    background: url("imgs/trashbin.svg");
+}
+
+.task-list>.task-field:nth-child(2n-1) {
+    background: #0606060A;
+}
+
+.task-list>.task-field {
+    cursor: pointer;
+}
+
+.task-list>.task-field.hiprio-task>span:before {
+    content: url("imgs/hiprio.svg");
+
+    margin-right: 15px;
+
+    font-size: 25px;
+    vertical-align: middle;
+}
+
+.task-field>span {
+    user-select: none;
+}
+
+.task-list>.task-field:before {
+    content: url("imgs/checkbox-empty.svg");
+
+    margin-right: 15px;
+
+    font-size: 25px;
+    vertical-align: middle;
+}
+
+.task-list>.task-field.task-completed:before {
+    content: url("imgs/checkbox.svg");
+}
+
+.task-list>.task-field.task-completed>span{
+    text-decoration: line-through;
+    opacity: 0.5;
+}
