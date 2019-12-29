@@ -58,19 +58,10 @@ function addTask(event) {
     let taskList = event.target.closest('.task-list');
     let taskEdit = taskList.parentElement.querySelector('.task-edit');
     taskEdit.style.visibility = 'visible';
-    let taskFields = taskList.querySelectorAll('.task-field');
     let input = taskEdit.querySelector('input');
     let checkbox = taskEdit.querySelector('.custom-checkbox');
-    if (taskFields.length) {
-        let lastField = taskFields[taskFields.length - 1];
-        let hiprio = lastField.classList.contains('hiprio-task');
-        let name = lastField.querySelector('span').innerText;
-        input.value = name;
-        advancedToggle(checkbox.classList, 'checkbox-checked', hiprio);
-    } else {
-        input.value = "";
-        advancedToggle(checkbox.classList, 'checkbox-checked', false);
-    }
+    input.value = "";
+    checkbox.classList.remove('checkbox-checked');
 
     let save_button = taskEdit.querySelector('.save-button');
     save_button.addEventListener('click', saveTask, {once: true});
@@ -113,6 +104,10 @@ function editTask(event) {
     let field = event.target.closest('.task-field');
     let edit = field.closest('#wrapper').querySelector('.task-edit');
     let saveButton = edit.querySelector('.save-button');
+    let newSaveButton = saveButton.cloneNode(true);
+    edit.replaceChild(newSaveButton, saveButton);
+    saveButton = newSaveButton;
+
     edit.style.visibility = 'visible';
     let input = edit.querySelector('input');
     input.value = field.querySelector('span').innerText;
