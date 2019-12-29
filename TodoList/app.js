@@ -49,7 +49,7 @@ function customCheckboxClick(event) {
 function addTask(event) {
     let taskList = event.target.closest('.task-list');
     let taskEdit = taskList.parentElement.querySelector('.task-edit');
-    taskEdit.style.opacity = '1';
+    taskEdit.style.visibility = 'visible';
 
     let save_button = taskEdit.querySelector('.save-button');
     save_button.addEventListener('click', saveTask, {once: true});
@@ -67,7 +67,10 @@ function completeTask(event) {
 
 function cancelEdition(event) {
     let edit = event.target.closest('.task-edit');
-    edit.style.opacity = '0';
+    let saveButton = edit.querySelector('.save-button');
+    let newSaveButton = saveButton.cloneNode(true);
+    edit.replaceChild(newSaveButton, saveButton);
+    edit.style.visibility = 'hidden';
 }
 
 function saveTask(event) {
@@ -81,7 +84,7 @@ function saveTask(event) {
     let new_field = makeField(name, hiprio);
     list.appendChild(new_field);
 
-    edit.style.opacity = '0';
+    edit.style.visibility = 'hidden';
 }
 
 function editTask(event) {
@@ -89,7 +92,7 @@ function editTask(event) {
     let field = event.target.closest('.task-field');
     let edit = field.closest('#wrapper').querySelector('.task-edit');
     let saveButton = edit.querySelector('.save-button');
-    edit.style.opacity = '1';
+    edit.style.visibility = 'visible';
 
     function applyEdition(event) {
         let edit = event.target.closest('.task-edit');
@@ -108,7 +111,8 @@ function editTask(event) {
                 field.classList.remove('hiprio-task');
             }
         }
-        edit.style.opacity = '0';
+        edit.style.visibility = 'hidden';
     }
+
     saveButton.addEventListener('click', applyEdition, {once: true});
 }
