@@ -28,7 +28,7 @@ body {
 
 .task-edit {
     display: inline-block;
-    margin-top: 71px;
+    top: 71px;
     position: sticky;
 
     vertical-align: top;

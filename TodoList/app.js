@@ -50,6 +50,8 @@ function addTask(event) {
     let taskList = event.target.closest('.task-list');
     let taskEdit = taskList.parentElement.querySelector('.task-edit');
     taskEdit.style.visibility = 'visible';
+    let input = taskEdit.querySelector('input');
+    input.value = "";
 
     let save_button = taskEdit.querySelector('.save-button');
     save_button.addEventListener('click', saveTask, {once: true});
@@ -93,6 +95,9 @@ function editTask(event) {
     let edit = field.closest('#wrapper').querySelector('.task-edit');
     let saveButton = edit.querySelector('.save-button');
     edit.style.visibility = 'visible';
+    let input = edit.querySelector('input');
+    input.value = field.querySelector('span').innerText;
+
 
     function applyEdition(event) {
         let edit = event.target.closest('.task-edit');
