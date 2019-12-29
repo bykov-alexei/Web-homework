@@ -40,6 +40,14 @@ function makeField(name, hiprio) {
     return field;
 }
 
+function advancedToggle(classList, cls, add) {
+    if (!classList.contains(cls) && add) {
+        classList.add(cls);
+    } else if (classList.contains(cls) && !add) {
+        classList.remove(cls);
+    }
+}
+
 
 function customCheckboxClick(event) {
     let checkbox = event.target;
@@ -50,8 +58,19 @@ function addTask(event) {
     let taskList = event.target.closest('.task-list');
     let taskEdit = taskList.parentElement.querySelector('.task-edit');
     taskEdit.style.visibility = 'visible';
+    let taskFields = taskList.querySelectorAll('.task-field');
     let input = taskEdit.querySelector('input');
-    input.value = "";
+    let checkbox = taskEdit.querySelector('.custom-checkbox');
+    if (taskFields.length) {
+        let lastField = taskFields[taskFields.length - 1];
+        let hiprio = lastField.classList.contains('hiprio-task');
+        let name = lastField.querySelector('span').innerText;
+        input.value = name;
+        advancedToggle(checkbox.classList, 'checkbox-checked', hiprio);
+    } else {
+        input.value = "";
+        advancedToggle(checkbox.classList, 'checkbox-checked', false);
+    }
 
     let save_button = taskEdit.querySelector('.save-button');
     save_button.addEventListener('click', saveTask, {once: true});
@@ -97,7 +116,8 @@ function editTask(event) {
     edit.style.visibility = 'visible';
     let input = edit.querySelector('input');
     input.value = field.querySelector('span').innerText;
-
+    let checkbox = edit.querySelector('.custom-checkbox');
+    advancedToggle(checkbox.classList, 'checkbox-checked', field.classList.contains('hiprio-task'));
 
     function applyEdition(event) {
         let edit = event.target.closest('.task-edit');
@@ -107,15 +127,7 @@ function editTask(event) {
 
         let nameField = field.querySelector('span');
         nameField.innerText = name;
-        if (hiprio) {
-            if (!field.classList.contains('hiprio-task')) {
-                field.classList.add('hiprio-task')
-            }
-        } else {
-            if (field.classList.contains('hiprio-task')) {
-                field.classList.remove('hiprio-task');
-            }
-        }
+        advancedToggle(field.classList, 'hiprio-task', hiprio);
         edit.style.visibility = 'hidden';
     }
 
