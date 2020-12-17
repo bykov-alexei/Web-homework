@@ -1,0 +1,34 @@
+.card {
+    width: 250px !important;
+}
+
+.add-note {
+    position: fixed;
+    top: 90%;
+    left: 90%;
+
+    width: 50px;
+    height: 50px;
+}
+
+.clear {
+    position: fixed;
+    top: 80%;
+    left: 90%;
+
+    width: 50px;
+    height: 50px;
+}
+
+.btn-white {
+    background-color: #fff !important;
+}
+
+*[contenteditable=true] {
+    text-decoration: underline;
+    outline: 1px solid #000;
+}
+
+h1, p {
+    min-width: 50px;
+}
