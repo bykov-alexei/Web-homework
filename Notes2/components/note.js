@@ -2,7 +2,6 @@ Vue.component('note', {
     props: ['note'],
     model: {
         prop: 'note',
-        event: 'changed',
     },
     data () {
         return {
@@ -19,14 +18,14 @@ Vue.component('note', {
     template: `
     <div class="card m-2" :class="color">
         <div class="card-header d-flex justify-content-between">
-            <h1 ref="title" @input="e => { title=e.target.innerText }">
+            <h1>
                 <span v-show="urgent">!!!</span>    
-                {{ title }} 
+                <span ref="title">{{ title }}</span> 
                 <span v-show="urgent">!!!</span>
             </h1>
         </div>
         <div class="card-body">
-            <p ref="description" @input="e => { description = e.target.innerText }">{{ description }}</p>
+            <p ref="description">{{ description }}</p>
             <span v-show="edit">
                 <div class="d-flex">
                     <div @click="changeColor(colors[0])" class="m-2 p-3 btn btn-danger border-dark"></div>
@@ -48,15 +47,11 @@ Vue.component('note', {
             this.edit = !this.edit
             this.$refs.title.setAttribute('contenteditable', this.edit)
             this.$refs.description.setAttribute('contenteditable', this.edit)
-            console.log({
-                id: note.id,
-                title: this.title,
-                description: this.description,
-                color: this.color,
-                urgent: this.urgent,
-            })
             if (this.edit == false) {
-                this.$emit('input', {
+                this.title = this.$refs.title.innerText
+                this.description = this.$refs.description.innerText
+
+                this.$emit('changed', {
                     id: note.id,
                     title: this.title,
                     description: this.description,
@@ -66,7 +61,7 @@ Vue.component('note', {
             }
         },
         deleteNote(event) {
-            this.$emit('delete-note', {id: note.id})
+            this.$emit('delete-note', {id: this.note.id})
         },
         changeColor(color) {
             for (let color of this.colors) {

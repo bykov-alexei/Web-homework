@@ -1,5 +1,6 @@
 .card {
-    width: 250px !important;
+    min-width: 250px !important;
+    max-width: 500px;
 }
 
 .add-note {

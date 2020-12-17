@@ -11,7 +11,7 @@
     <div id="app" class="d-flex justify-content-center">
         <div class="w-75">
             <div class="d-flex flex-wrap">
-                <note @delete-note="deleteNote(index)" @input="changed" :key="note.id" :note="note" v-for="(note, index) of notes"></note>
+                <note @delete-note="deleteNote(index)" @changed="changed" :key="note.id" :note="note" v-for="(note, index) of notes"></note>
             </div>
         </div>
         <button @click="addNote"  class="add-note btn btn-warning"><b>+</b></button>
@@ -45,7 +45,6 @@
                     let id = newElement.id
                     let oldElement = this.notes.find((element, index, array) => (element.id == id))
                     let index = this.notes.indexOf(oldElement)
-                    console.log(index)
                     this.notes[index] = newElement
                     this.save()
                 },
