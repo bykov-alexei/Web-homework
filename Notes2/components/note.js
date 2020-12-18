@@ -52,7 +52,7 @@ Vue.component('note', {
                 this.description = this.$refs.description.innerText
 
                 this.$emit('changed', {
-                    id: note.id,
+                    id: this.note.id,
                     title: this.title,
                     description: this.description,
                     color: this.color,
